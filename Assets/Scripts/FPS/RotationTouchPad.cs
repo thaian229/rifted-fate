@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class RotationTouchPad : MonoBehaviour
 {
-    public Transform RotatableH;    // player
-    public Transform RotatableV;    // camera
+    public Transform rotatableH;    // player
+    public Transform rotatableV;    // camera
     public Joystick joystick;   // Movement joystick
-    public float RotationSpeed = .1f;
-    public bool InvertedV = false;
-    public bool ClampedV = true;
+    public float rotationSpeed = 0.1f;
+    public bool invertedV = false;
+    public bool clampedV = true;
 
     private Vector2 currentMousePosition;
     private Vector2 mouseDeltaPosition;
@@ -17,7 +17,7 @@ public class RotationTouchPad : MonoBehaviour
 
     public static RotationTouchPad rotationTouchPad;
     [HideInInspector]
-    public bool istouchpadactive;
+    public bool isTouchpadActive;
 
 
     // Start is called before the first frame update
@@ -44,7 +44,7 @@ public class RotationTouchPad : MonoBehaviour
             {
                 for (int i = 0; i < Input.touchCount; i++)
                 {
-                    if (Input.touches[i].position.x > Screen.width / 2 && Input.touches[i].position.y > Screen.height / 2.5f)
+                    if (isInRotateArea(Input.touches[i].position))
                     {
                         currentMousePosition = Input.touches[i].position;
                         break;
@@ -62,7 +62,7 @@ public class RotationTouchPad : MonoBehaviour
 
     void LateUpdate()
     {
-        if (istouchpadactive)
+        if (isTouchpadActive)
         {
             if (Input.touchCount == 1)
             {
@@ -79,7 +79,7 @@ public class RotationTouchPad : MonoBehaviour
             {
                 for (int i = 0; i < Input.touchCount; i++)
                 {
-                    if (Input.touches[i].position.x > Screen.width / 2 && Input.touches[i].position.y > Screen.height / 2.5f)
+                    if (isInRotateArea(Input.touches[i].position))
                     {
                         currentMousePosition = Input.touches[i].position;
                         break;
@@ -92,23 +92,24 @@ public class RotationTouchPad : MonoBehaviour
             }
             mouseDeltaPosition = currentMousePosition - lastMousePosition;
 
-            // Rotate
-            if (RotatableH != null)
-                RotatableH.transform.Rotate(0f, mouseDeltaPosition.x * RotationSpeed, 0f);
-            if (RotatableV != null)
+            // Rotate player and camera
+            if (rotatableH != null)
+                rotatableH.transform.Rotate(0f, mouseDeltaPosition.x * rotationSpeed, 0f);
+            if (rotatableV != null)
             {
-                if (!InvertedV)
+                if (!invertedV)
                 {
-                    RotatableV.transform.Rotate(Mathf.Clamp(mouseDeltaPosition.y * (RotationSpeed * -1), -3, 3), 0f, 0f);
+                    rotatableV.transform.Rotate(Mathf.Clamp(mouseDeltaPosition.y * (rotationSpeed * -1), -3, 3), 0f, 0f);
                 }
                 else
                 {
-                    RotatableV.transform.Rotate(Mathf.Clamp(mouseDeltaPosition.y * RotationSpeed, -3, 3), 0f, 0f);
+                    rotatableV.transform.Rotate(Mathf.Clamp(mouseDeltaPosition.y * rotationSpeed, -3, 3), 0f, 0f);
                 }
 
-                if (ClampedV)
+                if (clampedV)
                 {
-                    float limitedXRot = RotatableV.transform.localEulerAngles.x;
+                    // clamp the camera rotation, avoid back flip bro :v
+                    float limitedXRot = rotatableV.transform.localEulerAngles.x;
                     if (limitedXRot > 90f && limitedXRot < 280f)
                     {
                         if (limitedXRot < 180f)
@@ -117,7 +118,7 @@ public class RotationTouchPad : MonoBehaviour
                             limitedXRot = 280f;
 
                     }
-                    RotatableV.transform.localEulerAngles = new Vector3(limitedXRot, RotatableV.transform.localEulerAngles.y, RotatableV.transform.localEulerAngles.z);
+                    rotatableV.transform.localEulerAngles = new Vector3(limitedXRot, rotatableV.transform.localEulerAngles.y, rotatableV.transform.localEulerAngles.z);
                 }
             }
 
@@ -125,14 +126,31 @@ public class RotationTouchPad : MonoBehaviour
         }
     }
 
+    // weather touch position is in designated area on the phone's screen
+    private bool isInRotateArea(Vector2 position)
+    {
+        if (position.x > Screen.width * 0.35f && position.x < Screen.width * 0.7f)
+        {
+            return true;
+        }
+        else if (position.x >= Screen.width * 0.7f)
+        {
+            if (position.y > Screen.height / 3)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void ActivateTouchpad()
     {
         ResetMousePosition();
-        istouchpadactive = true;
+        isTouchpadActive = true;
     }
 
     public void DeactivateTouchpad()
     {
-        istouchpadactive = false;
+        isTouchpadActive = false;
     }
 }
