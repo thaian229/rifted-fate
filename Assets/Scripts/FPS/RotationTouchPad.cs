@@ -44,7 +44,7 @@ public class RotationTouchPad : MonoBehaviour
             {
                 for (int i = 0; i < Input.touchCount; i++)
                 {
-                    if (isInRotateArea(Input.touches[i].position))
+                    if (IsInRotateArea(Input.touches[i].position))
                     {
                         currentMousePosition = Input.touches[i].position;
                         break;
@@ -79,7 +79,7 @@ public class RotationTouchPad : MonoBehaviour
             {
                 for (int i = 0; i < Input.touchCount; i++)
                 {
-                    if (isInRotateArea(Input.touches[i].position))
+                    if (IsInRotateArea(Input.touches[i].position))
                     {
                         currentMousePosition = Input.touches[i].position;
                         break;
@@ -127,7 +127,7 @@ public class RotationTouchPad : MonoBehaviour
     }
 
     // weather touch position is in designated area on the phone's screen
-    private bool isInRotateArea(Vector2 position)
+    private bool IsInRotateArea(Vector2 position)
     {
         if (position.x > Screen.width * 0.35f && position.x < Screen.width * 0.7f)
         {
