@@ -1,3 +1,3 @@
 # Rifted Fate  
-### Solo developed simple co-op PvE mobile fps game for Android  
+### Straight-forward PvE Co-op FPS game for Android  
 ## Author: Nguyen Thai An
