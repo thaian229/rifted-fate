@@ -42,6 +42,6 @@ public class LevelManager : MonoBehaviour
     public void GameOverContinue()
     {
         Time.timeScale = 1;
-        StartCoroutine(SceneController.instance.SwitchScenes("MainMenu"));
+        SceneController.instance.SwitchScenes("MainMenu");
     }
 }

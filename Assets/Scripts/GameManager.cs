@@ -24,6 +24,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SceneController.instance.LoadSceneAndSetActive("MainMenu"));
+        SceneController.instance.SwitchScenes("MainMenu");
     }
 }

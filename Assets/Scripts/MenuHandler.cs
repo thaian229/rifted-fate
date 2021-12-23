@@ -6,7 +6,7 @@ public class MenuHandler : MonoBehaviour
 {
     public void StartSoloEndless()
     {
-        StartCoroutine(SceneController.instance.SwitchScenes("EndlessSolo"));
+        SceneController.instance.SwitchScenes("EndlessSolo");
     }
 
     public void QuitGameApp()
@@ -16,6 +16,6 @@ public class MenuHandler : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        StartCoroutine(SceneController.instance.SwitchScenes("MainMenu"));
+        SceneController.instance.SwitchScenes("MainMenu");
     }
 }

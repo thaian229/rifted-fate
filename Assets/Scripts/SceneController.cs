@@ -28,23 +28,14 @@ public class SceneController : MonoBehaviour
 			loadingScene.SetActive(false);
 		}
 	}
-	
-	public IEnumerator SwitchScenes(string sceneName)
+
+	public void SwitchScenes(string sceneName)
 	{
 		if (loadingScene != null)
 		{
 			loadingScene.SetActive(true);
 		}
-		int oldScene = SceneManager.GetActiveScene().buildIndex;
-		yield return StartCoroutine(LoadSceneAndSetActive(sceneName));
-		yield return SceneManager.UnloadSceneAsync(oldScene);
-	}
-
-	public IEnumerator LoadSceneAndSetActive(string sceneName)
-	{
-		yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-		Scene newlyLoadedScene = SceneManager.GetSceneAt(SceneManager.sceneCount  - 1);
-		SceneManager.SetActiveScene(newlyLoadedScene);
+		SceneManager.LoadScene(sceneName);
 		if (loadingScene != null)
 		{
 			loadingScene.SetActive(false);
