@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.FPS.Game;
 
-public class Damageable : MonoBehaviour
+public class Hitable : MonoBehaviour
 {
     public float health = 20f;
 

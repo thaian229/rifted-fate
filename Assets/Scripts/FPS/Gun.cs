@@ -60,7 +60,7 @@ public class Gun : MonoBehaviour
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, shootRange))
             {
                 Debug.DrawRay(muzzle.transform.position, (hit.point - muzzle.transform.position).normalized, Color.blue);
-                Damageable target = hit.transform.GetComponent<Damageable>();
+                Hitable target = hit.transform.GetComponent<Hitable>();
                 if (target != null)
                 {
                     target.TakeDamage(damage);
