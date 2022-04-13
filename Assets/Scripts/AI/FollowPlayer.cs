@@ -1,18 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.FPS.Game;
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
+namespace Unity.FPS.AI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class FollowPlayer : MonoBehaviour
     {
-        
-    }
+        Transform m_PlayerTransform;
+        Vector3 m_OriginalOffset;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void Start()
+        {
+            ActorsManager actorsManager = FindObjectOfType<ActorsManager>();
+            if (actorsManager != null)
+                m_PlayerTransform = actorsManager.Player.transform;
+            else
+            {
+                enabled = false;
+                return;
+            }
+
+            m_OriginalOffset = transform.position - m_PlayerTransform.position;
+        }
+
+        void LateUpdate()
+        {
+            transform.position = m_PlayerTransform.position + m_OriginalOffset;
+        }
     }
 }
