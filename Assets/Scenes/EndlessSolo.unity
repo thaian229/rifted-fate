@@ -2425,16 +2425,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8911662253678586275, guid: 92fe22f12347583459d07712b615c7ba,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 1415574743, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8911662253832993716}
+    - target: {fileID: 1415574743, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchGun
       objectReference: {fileID: 0}
-    - target: {fileID: 8911662253678586275, guid: 92fe22f12347583459d07712b615c7ba,
-        type: 3}
-      propertyPath: m_AllowMSAA
-      value: 0
+    - target: {fileID: 1415574743, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GunManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 8911662253832993716, guid: 92fe22f12347583459d07712b615c7ba,
+        type: 3}
+      propertyPath: startingGuns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911662253832993716, guid: 92fe22f12347583459d07712b615c7ba,
+        type: 3}
+      propertyPath: startingGuns.Array.data[0]
+      value: 
+      objectReference: {fileID: 3577535125815617079, guid: 153ce08cd491e6a48b2a12c51e43e9c6,
+        type: 3}
+    - target: {fileID: 8911662253832993716, guid: 92fe22f12347583459d07712b615c7ba,
+        type: 3}
+      propertyPath: startingGuns.Array.data[1]
+      value: 
+      objectReference: {fileID: 1390623746529895605, guid: 40a1254a385430646baafebbd990fade,
+        type: 3}
     - target: {fileID: 8911662255495178998, guid: 92fe22f12347583459d07712b615c7ba,
         type: 3}
       propertyPath: m_RootOrder
@@ -2497,3 +2516,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+--- !u!114 &8911662253832993716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8911662253832993716, guid: 92fe22f12347583459d07712b615c7ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 8911662253832993710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025819aad4c52a34f85b073290b6a16c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

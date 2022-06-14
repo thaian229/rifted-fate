@@ -8,6 +8,10 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
     public Transform muzzle;
     public Text ammoText;
+    public GameObject GunRoot;
+    public bool IsGunActive { get; private set; }
+    public GameObject Owner;
+    public GameObject SourcePrefab { get; set; }
     public float damage = 10f;
     public float shootRange = 100f;
     public int ammoCapacity = 6;
@@ -24,6 +28,8 @@ public class Gun : MonoBehaviour
     {
         fireInterval = 1 / fireRate;
         currentAmmo = ammoCapacity;
+        fpsCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
         ammoText.text = "Ammo: " + currentAmmo;
     }
 
@@ -87,5 +93,12 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = ammoCapacity;
         ammoText.text = "Ammo: " + currentAmmo;
+    }
+
+    public void ShowWeapon(bool show)
+    {
+        GunRoot.SetActive(show);
+
+        IsGunActive = show;
     }
 }

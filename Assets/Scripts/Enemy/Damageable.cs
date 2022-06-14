@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.FPS.Game;
 
 public class Damageable : MonoBehaviour
 {
@@ -16,7 +15,7 @@ public class Damageable : MonoBehaviour
         }
     }
 
-    private void Die() 
+    private void Die()
     {
         Destroy(this.gameObject);
         LevelManager.instance.EarnScore(1);
