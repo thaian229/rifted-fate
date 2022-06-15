@@ -22,6 +22,12 @@ public class Damageable : MonoBehaviour
         {
             // Gain Reward
             LevelManager.instance.EarnScore(1);
+            
+            // Broadcast event
+            EnemyKillEvent evt = Events.EnemyKillEvent;
+            evt.Enemy = this.gameObject;
+            EventManager.Broadcast(evt);
+
             Destroy(this.gameObject);
         }
         if (this.gameObject.tag == "Player")

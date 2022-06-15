@@ -153,9 +153,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8911662255558516677}
         m_TargetAssemblyTypeName: Gun, Assembly-CSharp
-        m_MethodName: Reload
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1892,6 +1892,7 @@ MonoBehaviour:
   GunCamera: {fileID: 6386902351918489330}
   GunParentSocket: {fileID: 1095285804570420169}
   DefaultGunPosition: {fileID: 5444281956772089811}
+  inputShoot: 0
   FpsGun:
     serializedVersion: 2
     m_Bits: 1024

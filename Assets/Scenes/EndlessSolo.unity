@@ -619,6 +619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 304840076}
   - component: {fileID: 304840075}
+  - component: {fileID: 304840077}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -656,6 +657,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &304840077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304840074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d88817898405b4d9239755c04b8386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &319745670
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +776,7 @@ Transform:
   - {fileID: 82637695}
   - {fileID: 1380149833}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &436028583
 GameObject:
@@ -1587,7 +1600,7 @@ RectTransform:
   - {fileID: 1585392645}
   - {fileID: 2083995462}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2370,7 +2383,7 @@ PrefabInstance:
     - target: {fileID: 3565779797810797619, guid: d14bc57487539e249b34b5943bb1102f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3565779797810797619, guid: d14bc57487539e249b34b5943bb1102f,
         type: 3}

@@ -83,6 +83,11 @@ public class GunManager : MonoBehaviour
         if (inputShoot) GunSlots[ActiveGunIndex].Shoot();
     }
 
+    public void Reload()
+    {
+        GunSlots[ActiveGunIndex].Reload();
+    }
+
     public void startShoot()
     {
         this.inputShoot = true;

@@ -22,6 +22,8 @@ public class LevelManager : MonoBehaviour
             Destroy(this);
         }
 
+        EventManager.AddListener<AllObjectivesCompletedEvent>(OnFinishObjectives);
+
         gameOverPanel.SetActive(false);
         score = 0;
         scoreText.text = "Score: " + score;
@@ -44,5 +46,15 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneController.instance.SwitchScenes("MainMenu");
+    }
+
+    void OnFinishObjectives(AllObjectivesCompletedEvent evt)
+    {
+        GameOver();
+    }
+
+    void OnDestroy()
+    {
+        EventManager.RemoveListener<AllObjectivesCompletedEvent>(OnFinishObjectives);
     }
 }
