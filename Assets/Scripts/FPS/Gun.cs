@@ -12,6 +12,9 @@ public class Gun : MonoBehaviour
     public bool IsGunActive { get; private set; }
     public GameObject Owner;
     public GameObject SourcePrefab { get; set; }
+    public AudioClip shootSfx;
+    public GameObject shootVfx;
+    public GameObject hitVfx;
     public float damage = 10f;
     public float shootRange = 100f;
     public int ammoCapacity = 6;
@@ -61,20 +64,15 @@ public class Gun : MonoBehaviour
 
             ammoText.text = "Ammo: " + currentAmmo;
 
+            // TODO: SFX & VFX
             RaycastHit hit;
-
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, shootRange))
             {
-                Debug.DrawRay(muzzle.transform.position, (hit.point - muzzle.transform.position).normalized, Color.blue);
                 Damageable target = hit.transform.GetComponent<Damageable>();
                 if (target != null)
                 {
-                    target.TakeDamage(damage);
+                    if (target.gameObject.tag != "Player") target.TakeDamage(damage);
                 }
-            }
-            else
-            {
-                Debug.DrawRay(muzzle.transform.position, fpsCam.transform.forward, Color.blue);
             }
         }
     }

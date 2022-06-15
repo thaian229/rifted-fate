@@ -80,6 +80,8 @@ MonoBehaviour:
   fpsCam: {fileID: 0}
   muzzle: {fileID: 1390623745546326207}
   ammoText: {fileID: 0}
+  bulletPrefab: {fileID: 538651189634544225, guid: cf5a433d6c773f54b8f773121564455f,
+    type: 3}
   GunRoot: {fileID: 3196062582094003633}
   Owner: {fileID: 0}
   damage: 10

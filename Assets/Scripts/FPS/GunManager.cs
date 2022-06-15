@@ -10,6 +10,7 @@ public class GunManager : MonoBehaviour
     public Transform GunParentSocket;
     public Transform DefaultGunPosition;
     public int ActiveGunIndex { get; private set; }
+    public bool inputShoot = false;
     public LayerMask FpsGun;
     int m_newGunIndex;
 
@@ -25,12 +26,6 @@ public class GunManager : MonoBehaviour
         SwitchGun();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public bool AddGun(Gun gunPrefab)
     {
         for (int i = 0; i < GunSlots.Length; i++)
@@ -43,6 +38,7 @@ public class GunManager : MonoBehaviour
                 gunInstance.transform.localRotation = Quaternion.identity;
 
                 gunInstance.Owner = this.gameObject;
+                gunInstance.gameObject.tag = this.gameObject.tag;
                 gunInstance.SourcePrefab = gunPrefab.gameObject;
                 gunInstance.ShowWeapon(false);
 
@@ -80,5 +76,20 @@ public class GunManager : MonoBehaviour
         Gun newGun = GunSlots[newGunIndex];
         ActiveGunIndex = newGunIndex;
         newGun.ShowWeapon(true);
+    }
+
+    void Update()
+    {
+        if (inputShoot) GunSlots[ActiveGunIndex].Shoot();
+    }
+
+    public void startShoot()
+    {
+        this.inputShoot = true;
+    }
+
+    public void endShoot()
+    {
+        this.inputShoot = false;
     }
 }

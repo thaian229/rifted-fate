@@ -35,6 +35,7 @@ public class LevelManager : MonoBehaviour
 
     public void GameOver()
     {
+        // Handle 1 player die
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
     }

@@ -9,7 +9,7 @@ public class Damageable : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        if (health <= 0)
+        if (health <= 0.1f)
         {
             Die();
         }
@@ -17,7 +17,16 @@ public class Damageable : MonoBehaviour
 
     private void Die()
     {
-        Destroy(this.gameObject);
-        LevelManager.instance.EarnScore(1);
+        
+        if (this.gameObject.tag == "Enemy")
+        {
+            // Gain Reward
+            LevelManager.instance.EarnScore(1);
+            Destroy(this.gameObject);
+        }
+        if (this.gameObject.tag == "Player")
+        {
+            LevelManager.instance.GameOver();
+        }
     }
 }

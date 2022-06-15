@@ -721,7 +721,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &356951572
 GameObject:
@@ -899,6 +899,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436028583}
   m_CullTransparentMesh: 1
+--- !u!1 &574446490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8911662255558516677, guid: 92fe22f12347583459d07712b615c7ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 8911662253832993710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1099194280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,7 +2370,7 @@ PrefabInstance:
     - target: {fileID: 3565779797810797619, guid: d14bc57487539e249b34b5943bb1102f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3565779797810797619, guid: d14bc57487539e249b34b5943bb1102f,
         type: 3}
@@ -2436,6 +2442,108 @@ PrefabInstance:
     - target: {fileID: 1415574743, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GunManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899920005, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899920005, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: 025819aad4c52a34f85b073290b6a16c,
+        type: 3}
+    - target: {fileID: 1899920005, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].eventID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[1].eventID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8911662253832993716}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 574446490}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8911662253832993716}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: startShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: endShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GunManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GunManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GunManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133572628, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911662253832993712, guid: 92fe22f12347583459d07712b615c7ba,
+        type: 3}
+      propertyPath: health
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8911662253832993716, guid: 92fe22f12347583459d07712b615c7ba,
         type: 3}
@@ -2514,6 +2622,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPS_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8911662255495179001, guid: 92fe22f12347583459d07712b615c7ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92fe22f12347583459d07712b615c7ba, type: 3}
 --- !u!114 &8911662253832993716 stripped
@@ -2522,7 +2635,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8911662253832993710}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 574446490}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 025819aad4c52a34f85b073290b6a16c, type: 3}
