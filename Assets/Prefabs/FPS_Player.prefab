@@ -153,9 +153,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8911662255558516677}
-        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 8911662253832993716}
+        m_TargetAssemblyTypeName: GunManager, Assembly-CSharp
+        m_MethodName: Reload
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -501,9 +501,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8911662255558516672}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: Jump
+      - m_Target: {fileID: 8911662253832993716}
+        m_TargetAssemblyTypeName: GunManager, Assembly-CSharp
+        m_MethodName: SwitchGun
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -875,19 +875,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1899920006}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
-        m_MethodName: Shoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
 --- !u!114 &2133572628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,7 +888,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8911662253832993716}
+          m_TargetAssemblyTypeName: GunManager, Assembly-CSharp
+          m_MethodName: startShoot
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8911662253832993716}
+          m_TargetAssemblyTypeName: GunManager, Assembly-CSharp
+          m_MethodName: endShoot
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2020870287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,7 +1227,7 @@ GameObject:
   - component: {fileID: 8911662253678586274}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1261,7 +1281,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 119
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1760,7 +1780,7 @@ GameObject:
   - component: {fileID: 8911662255495178998}
   m_Layer: 0
   m_Name: FPS_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1872,7 +1892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164b39024a1b0f945b2cf6709867f624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHP: 20
+  health: 5
 --- !u!114 &8911662253832993716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1885,7 +1906,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025819aad4c52a34f85b073290b6a16c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingGuns: []
+  startingGuns:
+  - {fileID: 3577535125815617079, guid: 153ce08cd491e6a48b2a12c51e43e9c6, type: 3}
+  - {fileID: 1390623746529895605, guid: 40a1254a385430646baafebbd990fade, type: 3}
   GunSlots:
   - {fileID: 0}
   - {fileID: 0}

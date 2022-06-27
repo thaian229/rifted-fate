@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Damageable : MonoBehaviour
 {
+    public float maxHP = 20f;
     public float health = 20f;
+
+    void Start()
+    {
+        health = maxHP;
+    }
 
     public void TakeDamage(float amount)
     {
