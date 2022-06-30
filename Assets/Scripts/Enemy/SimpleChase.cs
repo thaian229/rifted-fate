@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.FPS.Game;
 
 public class SimpleChase : MonoBehaviour
 {
     public Transform player;
     public float chaseSpeed = 5f;
+    public float meleeDamage = 5f;
 
-    void Awake() 
+    void Awake()
     {
         if (player == null)
         {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            player = GameObject.Find("Player").GetComponent<Transform>();
         }
     }
 
@@ -28,21 +28,13 @@ public class SimpleChase : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other.gameObject.tag);
-
         if (other.gameObject.tag == "Player")
         {
-            LevelManager.instance.GameOver();
-        }
-    }
-
-    public void OnTriggerEnter(Collider other) 
-    {
-        Debug.Log(other.gameObject.tag);
-
-        if (other.gameObject.tag == "Player")
-        {
-            LevelManager.instance.GameOver();
+            Damageable damageable = other.gameObject.GetComponent<Damageable>();
+            if (damageable)
+            {
+                damageable.TakeDamage(meleeDamage);
+            }
         }
     }
 }

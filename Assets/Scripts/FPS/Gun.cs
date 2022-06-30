@@ -8,6 +8,13 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
     public Transform muzzle;
     public Text ammoText;
+    public GameObject GunRoot;
+    public bool IsGunActive { get; private set; }
+    public GameObject Owner;
+    public GameObject SourcePrefab { get; set; }
+    public AudioClip shootSfx;
+    public GameObject shootVfx;
+    public GameObject hitVfx;
     public float damage = 10f;
     public float shootRange = 100f;
     public int ammoCapacity = 6;
@@ -24,7 +31,9 @@ public class Gun : MonoBehaviour
     {
         fireInterval = 1 / fireRate;
         currentAmmo = ammoCapacity;
-        ammoText.text = "Ammo: " + currentAmmo;
+        fpsCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
+        ammoText.text = "Ammo: " + currentAmmo + " / " + ammoCapacity;
     }
 
     void FixedUpdate()
@@ -53,22 +62,17 @@ public class Gun : MonoBehaviour
             fireTimer = fireInterval;
             currentAmmo--;
 
-            ammoText.text = "Ammo: " + currentAmmo;
+            ammoText.text = "Ammo: " + currentAmmo + " / " + ammoCapacity;
 
+            // TODO: SFX & VFX
             RaycastHit hit;
-
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, shootRange))
             {
-                Debug.DrawRay(muzzle.transform.position, (hit.point - muzzle.transform.position).normalized, Color.blue);
                 Damageable target = hit.transform.GetComponent<Damageable>();
                 if (target != null)
                 {
-                    target.TakeDamage(damage);
+                    if (target.gameObject.tag != "Player") target.TakeDamage(damage);
                 }
-            }
-            else
-            {
-                Debug.DrawRay(muzzle.transform.position, fpsCam.transform.forward, Color.blue);
             }
         }
     }
@@ -86,6 +90,13 @@ public class Gun : MonoBehaviour
     {
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = ammoCapacity;
-        ammoText.text = "Ammo: " + currentAmmo;
+        ammoText.text = "Ammo: " + currentAmmo + " / " + ammoCapacity;
+    }
+
+    public void ShowWeapon(bool show)
+    {
+        GunRoot.SetActive(show);
+
+        IsGunActive = show;
     }
 }

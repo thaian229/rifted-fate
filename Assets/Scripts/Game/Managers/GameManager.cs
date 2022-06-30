@@ -2,32 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unity.FPS.Game
+
+public class GameManager : MonoBehaviour
 {
-    public class GameManager : MonoBehaviour
+    // Singleton
+    public static GameManager instance;
+
+    // Use this for initialization
+    void Awake()
     {
-        // Singleton
-        public static GameManager instance;
-
-        // Use this for initialization
-        void Awake()
+        if (instance == null)
         {
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(this);
-            }
-            else if (instance != null)
-            {
-                Destroy(this);
-            }
+            instance = this;
+            DontDestroyOnLoad(this);
         }
-
-        // Start is called before the first frame update
-        void Start()
+        else if (instance != null)
         {
-            SceneController.instance.SwitchScenes("MainMenu");
+            Destroy(this);
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        SceneController.instance.SwitchScenes("MainMenu");
     }
 }
 

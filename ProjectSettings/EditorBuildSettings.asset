@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndlessSolo.unity
     guid: d611366150c601d40a9fc9bd6e6028eb
+  - enabled: 1
+    path: Assets/Scenes/Level_1.unity
+    guid: d2277fddfde4e4344a9a651686b9f37c
+  - enabled: 1
+    path: Assets/Scenes/Level_2.unity
+    guid: c9cb502eadc0a514cbdbe2a61ccf768d
+  - enabled: 1
+    path: Assets/Scenes/Level_3.unity
+    guid: a840a5889f19d5744a55fe860e2e5c12
   m_configObjects: {}
