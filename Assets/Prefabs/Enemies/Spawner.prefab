@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPrefabs:
-  - {fileID: 4507369060725232548, guid: fb3991f92dcfc8f4f891b70ff671fc14, type: 3}
-  - {fileID: 539796889595853737, guid: 1a23c9a46e2d77a468ee3ce90f173ec1, type: 3}
+  - {fileID: 2344069820173327506, guid: 215ff68be8b806740a4c1017d2030732, type: 3}
+  - {fileID: 7564440219276278554, guid: 4f407a3660b3a06418893ae7847a5877, type: 3}
+  spawnPoints: []
   groundMask:
     serializedVersion: 2
     m_Bits: 64

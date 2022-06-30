@@ -33,7 +33,7 @@ public class Gun : MonoBehaviour
         currentAmmo = ammoCapacity;
         fpsCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
-        ammoText.text = "Ammo: " + currentAmmo;
+        ammoText.text = "Ammo: " + currentAmmo + " / " + ammoCapacity;
     }
 
     void FixedUpdate()
@@ -62,7 +62,7 @@ public class Gun : MonoBehaviour
             fireTimer = fireInterval;
             currentAmmo--;
 
-            ammoText.text = "Ammo: " + currentAmmo;
+            ammoText.text = "Ammo: " + currentAmmo + " / " + ammoCapacity;
 
             // TODO: SFX & VFX
             RaycastHit hit;
@@ -90,7 +90,7 @@ public class Gun : MonoBehaviour
     {
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = ammoCapacity;
-        ammoText.text = "Ammo: " + currentAmmo;
+        ammoText.text = "Ammo: " + currentAmmo + " / " + ammoCapacity;
     }
 
     public void ShowWeapon(bool show)

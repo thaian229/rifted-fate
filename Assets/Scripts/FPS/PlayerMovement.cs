@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller; 
+    public CharacterController controller;
     public Joystick joystick;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -12,9 +13,25 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 5f;
     public LayerMask groundMask;
     public float gravity = -9.81f;
+    public Text HpText;
+    public Damageable playerDamageable;
 
     private Vector3 velocity;
     private bool isGrounded;
+
+    void Start()
+    {
+        if (!playerDamageable)
+        {
+            playerDamageable = gameObject.GetComponentInChildren<Damageable>();
+        }
+
+        if (!HpText)
+        {
+            HpText = GameObject.Find("AmmoText").GetComponent<Text>();
+        }
+        HpText.text = "HP: " + playerDamageable.health;
+    }
 
     // Update is called once per frame
     void Update()
@@ -39,6 +56,9 @@ public class PlayerMovement : MonoBehaviour
         // Gravity simulation
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        // Display HP
+        HpText.text = "HP: " + playerDamageable.health;
     }
 
     // Make player jump upward
