@@ -31,6 +31,10 @@ public class PlayerMovement : MonoBehaviour
             HpText = GameObject.Find("AmmoText").GetComponent<Text>();
         }
         HpText.text = "HP: " + playerDamageable.health;
+
+        // Apply stat upgrade
+        this.moveSpeed = 10f + (float) (GameManager.instance.SpeedLevel - 1) * 0.5f;
+        this.playerDamageable.InitMaxHealth(20f + (float) (GameManager.instance.HealthLevel - 1) * 5f);
     }
 
     // Update is called once per frame

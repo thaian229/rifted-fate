@@ -10,6 +10,21 @@ public class MenuHandler : MonoBehaviour
     public GameObject OnlinePanel;
     public GameObject ShopPanel;
     public GameObject SettingPanel;
+    public Text CreditDisplay;
+
+    // For the shop
+    public Button HealthUpgrade;
+    public Text HealthLevel;
+    public Text HealthUpgradeCost;
+    public Button SpeedUpgrade;
+    public Text SpeedLevel;
+    public Text SpeedUpgradeCost;
+    public Button Gun2Unlock;
+    public Button Gun2Equip;
+    public Text Gun2Cost;
+    public Button Gun3Unlock;
+    public Button Gun3Equip;
+    public Text Gun3Cost;
 
     private GameObject m_currentPanel;
 
@@ -23,6 +38,7 @@ public class MenuHandler : MonoBehaviour
             SettingPanel.SetActive(false);
             MainPanel.SetActive(true);
             m_currentPanel = MainPanel;
+            CreditDisplay.text = "Credit: " + GameManager.instance.Creadit;
         }
     }
 
@@ -37,6 +53,7 @@ public class MenuHandler : MonoBehaviour
     {
         m_currentPanel.SetActive(false);
         ShopPanel.SetActive(true);
+        UpdateUIShop();
         m_currentPanel = ShopPanel;
     }
 
@@ -78,11 +95,85 @@ public class MenuHandler : MonoBehaviour
 
     public void QuitGameApp()
     {
-        Application.Quit();
+        GameManager.instance.OnQuitGame();
     }
 
     public void BackToMainMenu()
     {
         SceneController.instance.SwitchScenes("MainMenu");
+    }
+
+    // Shop Handler
+    private void UpdateUIShop()
+    {
+        GameManager gm = GameManager.instance;
+        // Credit
+        CreditDisplay.text = "Credit: " + gm.Creadit;
+
+        // Stat Node
+        HealthLevel.text = "Health LV " + gm.HealthLevel;
+        int healthCost = gm.GetUpgradeCostByLevel(gm.HealthLevel);
+        HealthUpgradeCost.text = "" + healthCost + " C";
+        HealthUpgrade.interactable = gm.Creadit >= healthCost;
+
+        SpeedLevel.text = "Speed LV " + gm.SpeedLevel;
+        int speedCost = gm.GetUpgradeCostByLevel(gm.SpeedLevel);
+        SpeedUpgradeCost.text = "" + speedCost + " C";
+        SpeedUpgrade.interactable = gm.Creadit >= speedCost;
+
+        // Gun Node
+        int gun2Cost = gm.GunCost[2];
+        if (gm.IsOwnedGun(2))
+        {
+            Gun2Cost.text = "Unlocked";
+        }
+        else
+        {
+            Gun2Cost.text = "" + gun2Cost + " C";
+        }
+        Gun2Unlock.interactable = !gm.IsOwnedGun(2) && gm.Creadit >= gun2Cost;
+        Gun2Equip.interactable = gm.IsOwnedGun(2);
+
+        int gun3Cost = gm.GunCost[3];
+        if (gm.IsOwnedGun(3))
+        {
+            Gun3Cost.text = "Unlocked";
+        }
+        else
+        {
+            Gun3Cost.text = "" + gun3Cost + " C";
+        }
+        Gun3Unlock.interactable = !gm.IsOwnedGun(3) && gm.Creadit >= gun3Cost;
+        Gun3Equip.interactable = gm.IsOwnedGun(3);
+    }
+
+    public void UpgradeHealthHandler()
+    {
+        GameManager.instance.UpgradeHealth();
+        UpdateUIShop();
+    }
+
+    public void UpgradeSpeedHandler()
+    {
+        GameManager.instance.UpgradeSpeed();
+        UpdateUIShop();
+    }
+
+    public void UnlockGunHandler(int gunId)
+    {
+        GameManager.instance.UnlockGun(gunId);
+        UpdateUIShop();
+    }
+
+    public void EquipGunHandler(int gunId)
+    {
+        GameManager.instance.EquipGun(gunId);
+        UpdateUIShop();
+    }
+
+    public void CheatCredit()
+    {
+        GameManager.instance.AddCredit(1000);
+        UpdateUIShop();
     }
 }

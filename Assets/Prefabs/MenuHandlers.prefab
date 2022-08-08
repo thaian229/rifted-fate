@@ -54,3 +54,16 @@ MonoBehaviour:
   OnlinePanel: {fileID: 0}
   ShopPanel: {fileID: 0}
   SettingPanel: {fileID: 0}
+  CreditDisplay: {fileID: 0}
+  HealthUpgrade: {fileID: 0}
+  HealthLevel: {fileID: 0}
+  HealthUpgradeCost: {fileID: 0}
+  SpeedUpgrade: {fileID: 0}
+  SpeedLevel: {fileID: 0}
+  SpeedUpgradeCost: {fileID: 0}
+  Gun2Unlock: {fileID: 0}
+  Gun2Equip: {fileID: 0}
+  Gun2Cost: {fileID: 0}
+  Gun3Unlock: {fileID: 0}
+  Gun3Equip: {fileID: 0}
+  Gun3Cost: {fileID: 0}
