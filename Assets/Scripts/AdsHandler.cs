@@ -19,7 +19,7 @@ public class AdsHandler : MonoBehaviour
     public static string adUnitId = "unexpected_platform";
 #endif
 
-    public void Awake() 
+    public void Awake()
     {
         if (instance == null)
         {
@@ -112,5 +112,6 @@ public class AdsHandler : MonoBehaviour
         MonoBehaviour.print(
              "HandleRewardedAdRewarded event received for "
                  + amount.ToString() + " " + type);
+        this.CreateAndLoadRewardedAd();
     }
 }
