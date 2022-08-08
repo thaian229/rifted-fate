@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
-
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+using GooglePlayGames.BasicApi.SavedGame;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +17,7 @@ public class GameManager : MonoBehaviour
     public int[] EquipedGuns = new int[2];
     public Gun[] AllGuns;
     public Dictionary<int, int> GunCost = new Dictionary<int, int>();
+    public bool IsLogined = false;
     public const int MaxUpgradeLevel = 10;
     public const int UpgradeCostByLevel = 500;
 
@@ -117,6 +121,120 @@ public class GameManager : MonoBehaviour
             if (OwnedGuns[i] == gunId) return true;
         }
         return false;
+    }
+
+    // GG Play
+    public void LoginGGPlay()
+    {
+        PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication);
+    }
+
+    internal void ProcessAuthentication(SignInStatus status)
+    {
+        if (status == SignInStatus.Success)
+        {
+            IsLogined = true;
+        }
+        else
+        {
+            IsLogined = false;
+        }
+    }
+
+    public void CloudSave()
+    {
+        if (!IsLogined) return;
+        OpenSavedGameSave("savedata");
+    }
+
+    void OpenSavedGameSave(string filename)
+    {
+        ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+        savedGameClient.OpenWithAutomaticConflictResolution(filename, DataSource.ReadCacheOrNetwork,
+            ConflictResolutionStrategy.UseLongestPlaytime, OnSavedGameOpenedSave);
+    }
+
+    public void OnSavedGameOpenedSave(SavedGameRequestStatus status, ISavedGameMetadata game)
+    {
+        if (status == SavedGameRequestStatus.Success)
+        {
+            // handle reading or writing of saved game.
+            byte[] savedData = new byte[1];
+            SaveGame(game, savedData, TimeSpan.MinValue);
+        }
+        else
+        {
+            // handle error
+        }
+    }
+
+    void SaveGame(ISavedGameMetadata game, byte[] savedData, TimeSpan totalPlaytime)
+    {
+        ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+
+        SavedGameMetadataUpdate.Builder builder = new SavedGameMetadataUpdate.Builder();
+        builder = builder
+            .WithUpdatedPlayedTime(totalPlaytime)
+            .WithUpdatedDescription("Saved game at " + DateTime.Now);
+
+        SavedGameMetadataUpdate updatedMetadata = builder.Build();
+        savedGameClient.CommitUpdate(game, updatedMetadata, savedData, OnSavedGameWritten);
+    }
+
+    public void OnSavedGameWritten(SavedGameRequestStatus status, ISavedGameMetadata game)
+    {
+        if (status == SavedGameRequestStatus.Success)
+        {
+            // handle reading or writing of saved game.
+        }
+        else
+        {
+            // handle error
+        }
+    }
+
+    public void CloudLoad()
+    {
+        if (!IsLogined) return;
+    }
+
+    void OpenSavedGameLoad(string filename)
+    {
+        ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+        savedGameClient.OpenWithAutomaticConflictResolution(filename, DataSource.ReadCacheOrNetwork,
+            ConflictResolutionStrategy.UseLongestPlaytime, OnSavedGameOpenedLoad);
+    }
+
+    public void OnSavedGameOpenedLoad(SavedGameRequestStatus status, ISavedGameMetadata game)
+    {
+        if (status == SavedGameRequestStatus.Success)
+        {
+            // handle reading or writing of saved game.
+            LoadGameData(game);
+        }
+        else
+        {
+            // handle error
+        }
+    }
+
+    void LoadGameData(ISavedGameMetadata game)
+    {
+        ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+        savedGameClient.ReadBinaryData(game, OnSavedGameDataRead);
+    }
+
+    public void OnSavedGameDataRead(SavedGameRequestStatus status, byte[] data)
+    {
+        if (status == SavedGameRequestStatus.Success)
+        {
+            // handle processing the byte array data
+            Debug.Log(data.Length);
+        }
+        else
+        {
+            // handle error
+        }
     }
 
     public void OnQuitGame()

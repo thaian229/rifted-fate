@@ -26,6 +26,11 @@ public class MenuHandler : MonoBehaviour
     public Button Gun3Equip;
     public Text Gun3Cost;
 
+    // For GG Play
+    public Button LoginButton;
+    public Button SaveButton;
+    public Button LoadButton;
+
     private GameObject m_currentPanel;
 
     void Start()
@@ -171,8 +176,36 @@ public class MenuHandler : MonoBehaviour
         UpdateUIShop();
     }
 
+    // GG Play
+    public void Login()
+    {
+        GameManager.instance.LoginGGPlay();
+        UpdateSettingUI();
+    }
+
+    public void Save()
+    {
+        GameManager.instance.CloudSave();
+        UpdateSettingUI();
+    }
+
+    public void Load()
+    {
+        GameManager.instance.CloudLoad();
+        UpdateSettingUI();        
+    }
+
+    private void UpdateSettingUI()
+    {
+        bool logined = GameManager.instance.IsLogined;
+        LoginButton.interactable = !logined;
+        SaveButton.interactable = logined;
+        LoadButton.interactable = logined;
+    }
+
     public void CheatCredit()
     {
+        AdsHandler.instance.UserChoseToWatchAd();
         GameManager.instance.AddCredit(1000);
         UpdateUIShop();
     }
