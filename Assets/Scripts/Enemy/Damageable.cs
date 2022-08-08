@@ -12,6 +12,12 @@ public class Damageable : MonoBehaviour
         health = maxHP;
     }
 
+    public void InitMaxHealth(float hp) 
+    {
+        maxHP = hp;
+        health = hp;
+    }
+
     public void TakeDamage(float amount)
     {
         health -= amount;

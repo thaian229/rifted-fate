@@ -78,7 +78,7 @@ public class MenuHandler : MonoBehaviour
 
     public void QuitGameApp()
     {
-        Application.Quit();
+        GameManager.instance.OnQuitGame();
     }
 
     public void BackToMainMenu()
