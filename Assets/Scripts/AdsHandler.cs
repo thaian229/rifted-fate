@@ -112,5 +112,6 @@ public class AdsHandler : MonoBehaviour
         MonoBehaviour.print(
              "HandleRewardedAdRewarded event received for "
                  + amount.ToString() + " " + type);
+        CreateAndLoadRewardedAd();
     }
 }

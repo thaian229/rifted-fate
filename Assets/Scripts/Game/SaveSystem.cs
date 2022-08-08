@@ -6,7 +6,7 @@ public class SaveSystem
 {
     public static void SaveGame(GameManager gameManager)
     {
-        string savePath = Application.persistentDataPath + "/rifted_fate.data";
+        string savePath = Application.persistentDataPath + "rifted_fate.data";
         BinaryFormatter formatter = new BinaryFormatter();
         using (FileStream stream = new FileStream(savePath, FileMode.Create))
         {
@@ -17,7 +17,7 @@ public class SaveSystem
 
     public static GameData LoadGame()
     {
-        string savePath = Application.persistentDataPath + "/rifted_fate.data";
+        string savePath = Application.persistentDataPath + "rifted_fate.data";
 		if (File.Exists(savePath))
 		{
 			BinaryFormatter formatter = new BinaryFormatter();

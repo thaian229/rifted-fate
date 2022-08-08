@@ -88,7 +88,12 @@ public class MenuHandler : MonoBehaviour
         SceneController.instance.SwitchScenes(level);
     }
 
-    public void StartOnline()
+    public void StartOnlineCreate()
+    {
+        SceneController.instance.SwitchScenes("EndlessSolo");
+    }
+
+    public void StartOnlineJoin()
     {
         SceneController.instance.SwitchScenes("EndlessSolo");
     }
