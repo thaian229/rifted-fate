@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.1932602, y: 2.4363303, z: -3.7172222}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,3 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2cb5aaec1120c1489b91cfcc272d4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Creadit: 0
+  HealthLevel: 1
+  SpeedLevel: 1
+  OwnedGuns: 
+  EquipedGuns: 0000000000000000
+  AllGuns:
+  - {fileID: 3577535125815617079, guid: 153ce08cd491e6a48b2a12c51e43e9c6, type: 3}
+  - {fileID: 1390623746529895605, guid: 40a1254a385430646baafebbd990fade, type: 3}
+  - {fileID: 3577535125815617079, guid: 9f5c8407924144c45aa5fc6584193a54, type: 3}
+  - {fileID: 3577535125815617079, guid: 4c71e23cc79b82943944421c09ce631f, type: 3}

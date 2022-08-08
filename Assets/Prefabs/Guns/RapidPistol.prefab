@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1390623746529895497}
   - component: {fileID: 1390623746529895605}
   m_Layer: 10
-  m_Name: FakeGun2
+  m_Name: RapidPistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

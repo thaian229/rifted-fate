@@ -206,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 34899626}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7636978350617722770}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+        m_MethodName: UnlockGunHandler
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &34899626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &103855048
 RectTransform:
   m_ObjectHideFlags: 0
@@ -710,7 +722,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 383270536}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7636978350617722770}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+        m_MethodName: EquipGunHandler
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &383270536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1154,7 +1178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &573445058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3016,7 +3040,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1133038909}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7636978350617722770}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+        m_MethodName: UpgradeHealthHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1133038909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3218,7 +3254,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1173678131}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7636978350617722770}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+        m_MethodName: EquipGunHandler
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1173678131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4114,7 +4162,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1608424373}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7636978350617722770}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+        m_MethodName: UpgradeSpeedHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1608424373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5230,7 +5290,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1902322574}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7636978350617722770}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+        m_MethodName: UnlockGunHandler
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1902322574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5717,27 +5789,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AdsButton
       objectReference: {fileID: 0}
-    - target: {fileID: 4370665176441653998, guid: d0329f7d2e9d3ff4c8a0abd462dd43da,
+    - target: {fileID: 4370665175930721979, guid: d0329f7d2e9d3ff4c8a0abd462dd43da,
         type: 3}
-      propertyPath: m_Text
-      value: Watch Ads
-      objectReference: {fileID: 0}
-    - target: {fileID: 4370665176441653998, guid: d0329f7d2e9d3ff4c8a0abd462dd43da,
-        type: 3}
-      propertyPath: m_FontData.m_Font
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 12800000, guid: 43631e0e91b686e4fbffb897db7ca8f5,
-        type: 3}
-    - target: {fileID: 4370665176441653998, guid: d0329f7d2e9d3ff4c8a0abd462dd43da,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4370665176441653998, guid: d0329f7d2e9d3ff4c8a0abd462dd43da,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7636978350617722770}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0329f7d2e9d3ff4c8a0abd462dd43da, type: 3}
 --- !u!224 &2064959804 stripped
@@ -5835,6 +5891,26 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
         type: 3}
+      propertyPath: Gun2Cost
+      value: 
+      objectReference: {fileID: 1220690687}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: Gun3Cost
+      value: 
+      objectReference: {fileID: 1173277920}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: Gun2Equip
+      value: 
+      objectReference: {fileID: 383270535}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: Gun3Equip
+      value: 
+      objectReference: {fileID: 1173678130}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
       propertyPath: MainPanel
       value: 
       objectReference: {fileID: 573445057}
@@ -5843,6 +5919,26 @@ PrefabInstance:
       propertyPath: ShopPanel
       value: 
       objectReference: {fileID: 1762713716}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: Gun2Unlock
+      value: 
+      objectReference: {fileID: 34899625}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: Gun3Unlock
+      value: 
+      objectReference: {fileID: 1902322573}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: SpeedLevel
+      value: 
+      objectReference: {fileID: 1603156786}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: HealthLevel
+      value: 
+      objectReference: {fileID: 2045657212}
     - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
         type: 3}
       propertyPath: OnlinePanel
@@ -5858,6 +5954,31 @@ PrefabInstance:
       propertyPath: SettingPanel
       value: 
       objectReference: {fileID: 296679039}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: SpeedUpgrade
+      value: 
+      objectReference: {fileID: 1608424372}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: CreditDisplay
+      value: 
+      objectReference: {fileID: 1025516719}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: HealthUpgrade
+      value: 
+      objectReference: {fileID: 1133038908}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: SpeedUpgradeCost
+      value: 
+      objectReference: {fileID: 965793255}
+    - target: {fileID: 2538842881166815382, guid: dda88b3041723fe4a9c64ecb0740e49d,
+        type: 3}
+      propertyPath: HealthUpgradeCost
+      value: 
+      objectReference: {fileID: 1877228863}
     - target: {fileID: 3867461975595710871, guid: dda88b3041723fe4a9c64ecb0740e49d,
         type: 3}
       propertyPath: m_Pivot.x

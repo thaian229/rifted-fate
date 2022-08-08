@@ -33,6 +33,11 @@ public class Gun : MonoBehaviour
         currentAmmo = ammoCapacity;
         fpsCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
+    }
+
+    public void UpdateAmmoText()
+    {
+        if (!ammoText) return;
         ammoText.text = "Ammo: " + currentAmmo + " / " + ammoCapacity;
     }
 
@@ -62,8 +67,6 @@ public class Gun : MonoBehaviour
             fireTimer = fireInterval;
             currentAmmo--;
 
-            ammoText.text = "Ammo: " + currentAmmo + " / " + ammoCapacity;
-
             // TODO: SFX & VFX
             RaycastHit hit;
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, shootRange))
@@ -90,13 +93,11 @@ public class Gun : MonoBehaviour
     {
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = ammoCapacity;
-        ammoText.text = "Ammo: " + currentAmmo + " / " + ammoCapacity;
     }
 
     public void ShowWeapon(bool show)
     {
         GunRoot.SetActive(show);
-
         IsGunActive = show;
     }
 }

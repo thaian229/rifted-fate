@@ -14,6 +14,14 @@ public class GunManager : MonoBehaviour
     public LayerMask FpsGun;
     int m_newGunIndex;
 
+    void Awake() 
+    {
+        int indexGun1 = GameManager.instance.EquipedGuns[0];
+        int indexGun2 = GameManager.instance.EquipedGuns[1];
+        this.startingGuns[0] = GameManager.instance.AllGuns[indexGun1];
+        this.startingGuns[1] = GameManager.instance.AllGuns[indexGun2];
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +89,7 @@ public class GunManager : MonoBehaviour
     void Update()
     {
         if (inputShoot) GunSlots[ActiveGunIndex].Shoot();
+        if (GunSlots[ActiveGunIndex]) GunSlots[ActiveGunIndex].UpdateAmmoText();
     }
 
     public void Reload()
