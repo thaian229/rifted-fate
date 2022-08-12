@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
 {
     public Camera fpsCam;
     public Transform muzzle;
+    public Transform fxRoot;
     public Text ammoText;
     public GameObject GunRoot;
     public bool IsGunActive { get; private set; }
@@ -25,6 +26,7 @@ public class Gun : MonoBehaviour
     private float fireInterval;
     private float fireTimer = 0f;
     private float reloadTimer = 0f;
+    private AudioSource m_AudioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class Gun : MonoBehaviour
         currentAmmo = ammoCapacity;
         fpsCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
+        m_AudioSource = gameObject.GetComponent<AudioSource>();
     }
 
     public void UpdateAmmoText()
@@ -67,10 +70,26 @@ public class Gun : MonoBehaviour
             fireTimer = fireInterval;
             currentAmmo--;
 
-            // TODO: SFX & VFX
+            // SFX & VFX
+            if (shootVfx != null)
+            {
+                GameObject vfx = Instantiate(shootVfx, fxRoot.position, fxRoot.rotation, fxRoot.transform);
+                Destroy(vfx, 1f);
+            }
+
+            if (shootSfx != null && m_AudioSource != null)
+            {
+                m_AudioSource.PlayOneShot(shootSfx);
+            }
+
             RaycastHit hit;
             if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, shootRange))
             {
+                if (hitVfx != null)
+                {
+                    GameObject vfx = Instantiate(hitVfx, hit.point, hit.transform.rotation);
+                    Destroy(vfx, 1f);
+                }
                 Damageable target = hit.transform.GetComponent<Damageable>();
                 if (target != null)
                 {

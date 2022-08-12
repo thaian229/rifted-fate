@@ -22,10 +22,13 @@ public class EnemyController : MonoBehaviour
     public ProjectileBase projectilePrefab;
     public float attackInterval = 3f;
     public Transform weaponRoot;
+    public AudioClip deathSfx;
+    public GameObject deathVfx;
 
     Collider[] m_SelfColliders;
     Damageable m_Damageable;
     float dtAttack = 0f;
+    AudioSource m_AudioSource;
 
     void Start()
     {
@@ -37,6 +40,7 @@ public class EnemyController : MonoBehaviour
         m_Damageable = GetComponent<Damageable>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         m_SelfColliders = GetComponentsInChildren<Collider>();
+        m_AudioSource = GetComponent<AudioSource>();
 
         AiState = AIState.Follow;
     }
@@ -128,6 +132,19 @@ public class EnemyController : MonoBehaviour
             {
                 damageable.TakeDamage(MeleeDamage);
             }
+        }
+    }
+
+    public void PlayDeathFeedBack()
+    {
+        if (deathVfx != null)
+        {
+            GameObject vfx = Instantiate(deathVfx, transform.position, transform.rotation);
+            Destroy(vfx, 2f);
+        }
+        if (deathSfx != null && m_AudioSource != null)
+        {
+            m_AudioSource.PlayOneShot(deathSfx);
         }
     }
 }

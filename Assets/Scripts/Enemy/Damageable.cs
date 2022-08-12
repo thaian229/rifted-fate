@@ -44,6 +44,7 @@ public class Damageable : MonoBehaviour
             if (chance <= dropRate) {
                 Instantiate(lootPrefab, transform.position, Quaternion.identity);
             }
+            gameObject.GetComponent<EnemyController>().PlayDeathFeedBack();
             
             // Broadcast event
             EnemyKillEvent evt = Events.EnemyKillEvent;

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MenuHandler : MonoBehaviour
 {
+    public static MenuHandler instance;
     public GameObject MainPanel;
     public GameObject OfflinePanel;
     public GameObject OnlinePanel;
@@ -32,6 +33,18 @@ public class MenuHandler : MonoBehaviour
     public Button LoadButton;
 
     private GameObject m_currentPanel;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != null)
+        {
+            Destroy(this);
+        }
+    }
 
     void Start()
     {
@@ -114,7 +127,7 @@ public class MenuHandler : MonoBehaviour
     }
 
     // Shop Handler
-    private void UpdateUIShop()
+    public void UpdateUIShop()
     {
         GameManager gm = GameManager.instance;
         // Credit
@@ -211,7 +224,7 @@ public class MenuHandler : MonoBehaviour
     public void CheatCredit()
     {
         AdsHandler.instance.UserChoseToWatchAd();
-        GameManager.instance.AddCredit(1000);
+        // GameManager.instance.AddCredit(1000);
         UpdateUIShop();
     }
 }

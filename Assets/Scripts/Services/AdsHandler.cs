@@ -12,9 +12,7 @@ public class AdsHandler : MonoBehaviour
     private RewardedAd rewardedAd;
 
 #if UNITY_ANDROID
-    public static string adUnitId = "ca-app-pub-3940256099942544/5224354917";
-#elif UNITY_IPHONE
-    public static string adUnitId = "ca-app-pub-3940256099942544/1712485313";
+    public static string adUnitId = "ca-app-pub-3771039478156541/2141940151";
 #else
     public static string adUnitId = "unexpected_platform";
 #endif
@@ -112,6 +110,8 @@ public class AdsHandler : MonoBehaviour
         MonoBehaviour.print(
              "HandleRewardedAdRewarded event received for "
                  + amount.ToString() + " " + type);
+        GameManager.instance.AddCredit((int) amount);
+        MenuHandler.instance.UpdateUIShop();
         this.CreateAndLoadRewardedAd();
     }
 }
