@@ -44,7 +44,7 @@ public class Damageable : MonoBehaviour
         }
         if (this.gameObject.tag == "Player")
         {
-            LevelManager.instance.GameOver();
+            LevelManager.instance.GameOver(false);
         }
     }
 }

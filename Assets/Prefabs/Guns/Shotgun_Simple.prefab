@@ -86,8 +86,8 @@ MonoBehaviour:
   shootSfx: {fileID: 0}
   shootVfx: {fileID: 0}
   hitVfx: {fileID: 0}
-  damage: 30
-  shootRange: 10
+  damage: 20
+  shootRange: 25
   ammoCapacity: 7
   reloadTime: 2
   fireRate: 1
