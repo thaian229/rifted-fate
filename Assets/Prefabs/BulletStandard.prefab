@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 538651189634544227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.85, y: 3.45, z: -17.07}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8299507327955861904}
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b3aa01421236d7469d7dc86cf7d1939, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,11 +111,11 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!114 &538651189634544225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,14 +130,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HittableLayers:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 2147483647
   MaxLifetime: 5
   ImpactVfx: {fileID: 0}
   ImpactVfxLifetime: 1
   ImpactSfx: {fileID: 0}
-  Speed: 10
-  GravityAcceleration: 1
-  Damage: 10
+  Speed: 5
+  GravityAcceleration: 0
+  Damage: 5
   AreaOfDamage: {fileID: 0}
 --- !u!1 &7737963929323547710
 GameObject:

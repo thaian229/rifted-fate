@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5223477757453994193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0.75}
+  m_LocalPosition: {x: 0, y: 3, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134,12 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe5c74f0a8ebbb489ddb104fbe37268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LootPrefab: {fileID: 0}
-  DropRate: 0.2
+  LootPrefab: {fileID: 2620131183356007192, guid: d40ae884302b6684a8b3b6f3d55a71ba,
+    type: 3}
+  DropRate: 0.1
   player: {fileID: 0}
   MeleeDamage: 0
-  AttackRange: 10
+  AttackRange: 15
   OrientationSpeed: 10
+  projectilePrefab: {fileID: 538651189634544225, guid: cf5a433d6c773f54b8f773121564455f,
+    type: 3}
+  attackInterval: 3
+  weaponRoot: {fileID: 5223477757453994194}
 --- !u!135 &4286684099003838654
 SphereCollider:
   m_ObjectHideFlags: 0

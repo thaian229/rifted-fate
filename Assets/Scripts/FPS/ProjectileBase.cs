@@ -7,16 +7,16 @@ public class ProjectileBase : MonoBehaviour
     public LayerMask HittableLayers = -1;
     public float MaxLifetime = 5f;
     public GameObject ImpactVfx;
-    public float ImpactVfxLifetime = 1f;
+    public float ImpactVfxLifetime = 0.5f;
     public AudioClip ImpactSfx;
-    public float Speed = 50f;
-    public float GravityAcceleration = 0f;
-    public float Damage = 10f;
+    public float Speed;
+    public float GravityAcceleration;
+    public float Damage;
     public DamageArea AreaOfDamage;
 
     Vector3 m_Velocity;
 
-    void OnEnable()
+    void Awake()
     {
         m_Velocity = transform.forward * Speed;
 
@@ -57,6 +57,12 @@ public class ProjectileBase : MonoBehaviour
                 {
                     damageable.TakeDamage(Damage);
                 }
+            }
+        } else if (other.gameObject.tag != "Enemy") {
+            if (AreaOfDamage)
+            {
+                // Deal damage in an area
+                AreaOfDamage.DealAreaDamage(Damage, this.transform.position, this.gameObject);
             }
         }
         // Self destroy

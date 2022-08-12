@@ -148,8 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe5c74f0a8ebbb489ddb104fbe37268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LootPrefab: {fileID: 0}
-  DropRate: 0.2
+  LootPrefab: {fileID: 2620131183356007192, guid: d40ae884302b6684a8b3b6f3d55a71ba,
+    type: 3}
+  DropRate: 0.15
   player: {fileID: 0}
   MeleeDamage: 5
   AttackRange: 0.6

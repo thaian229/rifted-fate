@@ -34,6 +34,14 @@ public class Damageable : MonoBehaviour
         {
             // Gain Reward
             LevelManager.instance.EarnScore(1);
+
+            // Drop loot
+            GameObject lootPrefab = gameObject.GetComponent<EnemyController>().LootPrefab;
+            float dropRate = gameObject.GetComponent<EnemyController>().DropRate;
+            float chance = Random.Range(0, 1);
+            if (chance <= dropRate) {
+                Instantiate(lootPrefab, transform.position, Quaternion.identity);
+            }
             
             // Broadcast event
             EnemyKillEvent evt = Events.EnemyKillEvent;

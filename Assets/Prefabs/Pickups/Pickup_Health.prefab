@@ -76,6 +76,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f62ef9ea1ab4f469156f612d8c0848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RotatingSpeed: 360
+  PickupSfx: {fileID: 0}
+  HealAmount: 15
 --- !u!1 &7296493021711450243
 GameObject:
   m_ObjectHideFlags: 0

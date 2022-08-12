@@ -19,9 +19,13 @@ public class EnemyController : MonoBehaviour
     public float MeleeDamage = 5f;
     public float AttackRange = 10f;
     public float OrientationSpeed = 10f;
+    public ProjectileBase projectilePrefab;
+    public float attackInterval = 3f;
+    public Transform weaponRoot;
 
     Collider[] m_SelfColliders;
     Damageable m_Damageable;
+    float dtAttack = 0f;
 
     void Start()
     {
@@ -41,6 +45,7 @@ public class EnemyController : MonoBehaviour
     {
         UpdateAiStateTransitions();
         UpdateCurrentAiState();
+        dtAttack += Time.deltaTime;
     }
 
     void UpdateAiStateTransitions()
@@ -98,7 +103,20 @@ public class EnemyController : MonoBehaviour
 
     void TryAttack()
     {
+        if (projectilePrefab == null || weaponRoot == null) return;
 
+        if (dtAttack > attackInterval) {
+            RangeAttack();
+            dtAttack = 0f;
+        }
+    }
+
+    void RangeAttack()
+    {
+        Vector3 lookPosition = player.position + player.up * 1f;
+        Vector3 lookDirection = (lookPosition - weaponRoot.position).normalized;
+        ProjectileBase newProjectile = Instantiate(projectilePrefab, weaponRoot.position, Quaternion.LookRotation(lookDirection));
+        newProjectile.gameObject.tag = this.gameObject.tag;
     }
 
     public void OnCollisionEnter(Collision other)
