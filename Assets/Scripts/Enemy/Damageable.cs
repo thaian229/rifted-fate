@@ -21,7 +21,9 @@ public class Damageable : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        if (health <= 0.1f)
+        if (health >= maxHP) health = maxHP;
+
+        if (health <= 0.01f)
         {
             Die();
         }
@@ -38,7 +40,7 @@ public class Damageable : MonoBehaviour
             // Drop loot
             GameObject lootPrefab = gameObject.GetComponent<EnemyController>().LootPrefab;
             float dropRate = gameObject.GetComponent<EnemyController>().DropRate;
-            float chance = Random.Range(0, 1);
+            float chance = Random.Range(0f, 1f);
             if (chance <= dropRate) {
                 Instantiate(lootPrefab, transform.position, Quaternion.identity);
             }

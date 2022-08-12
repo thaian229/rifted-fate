@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
         if (status == SavedGameRequestStatus.Success)
         {
             // handle reading or writing of saved game.
-            byte[] savedData = new byte[1];
+            byte[] savedData = SaveSystem.SerializeGameData(this);
             SaveGame(game, savedData, TimeSpan.MinValue);
         }
         else
@@ -196,6 +196,7 @@ public class GameManager : MonoBehaviour
     public void CloudLoad()
     {
         if (!IsLogined) return;
+        OpenSavedGameLoad("savedata");
     }
 
     void OpenSavedGameLoad(string filename)
@@ -229,7 +230,21 @@ public class GameManager : MonoBehaviour
         if (status == SavedGameRequestStatus.Success)
         {
             // handle processing the byte array data
-            Debug.Log(data.Length);
+            GameData gameData = SaveSystem.DeserializeGameData(data);
+            if (gameData != null)
+            {
+                this.Creadit = gameData.Credit;
+                this.HealthLevel = gameData.HealthLevel;
+                this.SpeedLevel = gameData.SpeedLevel;
+
+                this.OwnedGuns = new List<int>();
+                for (int i = 0; i < gameData.OwnedGuns.Length; i++)
+                {
+                    this.OwnedGuns.Add(gameData.OwnedGuns[i]);
+                }
+
+                this.EquipedGuns = gameData.EquipedGuns;
+            }
         }
         else
         {
