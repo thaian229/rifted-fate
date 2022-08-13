@@ -223,8 +223,19 @@ public class MenuHandler : MonoBehaviour
 
     public void CheatCredit()
     {
+        GameManager.instance.AddCredit(1000);
+        UpdateUIShop();
+    }
+
+    public void WatchAds()
+    {
         AdsHandler.instance.UserChoseToWatchAd();
-        // GameManager.instance.AddCredit(1000);
+    }
+
+    public void TestAds()
+    {
+        AdsHandler.instance.UserChoseToWatchAd();
+        GameManager.instance.AddCredit(1000);
         UpdateUIShop();
     }
 }

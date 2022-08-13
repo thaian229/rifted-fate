@@ -106,6 +106,7 @@ public class AdsHandler : MonoBehaviour
     public void HandleUserEarnedReward(object sender, Reward args)
     {
         string type = args.Type;
+        args.Amount = 1000;
         double amount = args.Amount;
         MonoBehaviour.print(
              "HandleRewardedAdRewarded event received for "
