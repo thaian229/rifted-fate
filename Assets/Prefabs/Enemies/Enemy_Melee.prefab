@@ -81,11 +81,11 @@ NavMeshAgent:
   m_GameObject: {fileID: 2344069820173327506}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Radius: 1.25
+  m_Speed: 4
+  m_Acceleration: 10
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 150
   m_StoppingDistance: 0.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -153,12 +153,13 @@ MonoBehaviour:
     type: 3}
   DropRate: 0.3
   player: {fileID: 0}
-  MeleeDamage: 5
+  MeleeDamage: 10
   AttackRange: 0.6
   OrientationSpeed: 10
   projectilePrefab: {fileID: 0}
   attackInterval: 3
   weaponRoot: {fileID: 0}
+  deathRoot: {fileID: 3045598976690916834}
   deathSfx: {fileID: 8300000, guid: 65b7d1df144c6944cab9d6686649df0b, type: 3}
   deathVfx: {fileID: 8950624839484268180, guid: 2a8f5052fe50f7b41b17149abb0f7414,
     type: 3}

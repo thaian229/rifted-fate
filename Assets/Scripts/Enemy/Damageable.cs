@@ -21,6 +21,7 @@ public class Damageable : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+        if (health <= 0f) health = 0f;
         if (health >= maxHP) health = maxHP;
 
         if (health <= 0.01f)

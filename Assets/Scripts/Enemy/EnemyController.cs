@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
     public ProjectileBase projectilePrefab;
     public float attackInterval = 3f;
     public Transform weaponRoot;
+    public Transform deathRoot;
     public AudioClip deathSfx;
     public GameObject deathVfx;
 
@@ -139,7 +140,7 @@ public class EnemyController : MonoBehaviour
     {
         if (deathVfx != null)
         {
-            GameObject vfx = Instantiate(deathVfx, transform.position, transform.rotation);
+            GameObject vfx = Instantiate(deathVfx, deathRoot.position, deathRoot.rotation);
             Destroy(vfx, 2f);
         }
         if (deathSfx != null && m_AudioSource != null)

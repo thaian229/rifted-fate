@@ -2733,7 +2733,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7636978350617722770}
         m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
-        m_MethodName: TestAds
+        m_MethodName: CheatCredit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

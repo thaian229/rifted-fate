@@ -135,7 +135,7 @@ MonoBehaviour:
   ImpactVfx: {fileID: 0}
   ImpactVfxLifetime: 1
   ImpactSfx: {fileID: 0}
-  Speed: 5
+  Speed: 8
   GravityAcceleration: 0
   Damage: 5
   AreaOfDamage: {fileID: 0}
